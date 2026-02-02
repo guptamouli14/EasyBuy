@@ -78,7 +78,6 @@ body {
 .nav-left {
   display: flex;
   justify-content: flex-start;
-  gap: 16px; padding-left: 20px;
 }
 
 /* Right stays right */
@@ -120,6 +119,12 @@ body {
   margin-bottom: 12vh;   /* space above bottom bar */
   margin-top: var(--top-bar-height);
   margin-bottom: var(--bottom-bar-height);
+
+
+  background-image: url("images/home_page_buttons/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 420px;
   position: relative;   /* REQUIRED for ::before */
 }
 
@@ -178,14 +183,10 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 4rem;
-
-  /* ⬇️ THIS IS THE KEY */
-  margin-left: 22%;
-  margin-right: 22%;
-
-  padding: 4vh 2vw;
+  padding: 40px 0;
+  max-width: 60%;
+  margin: 0 auto;
 }
-/* ================= STAIRCASE LAYOUT ================= */
 
 /* STAIRCASE STEPS */
 .step {
@@ -196,8 +197,8 @@ body {
   justify-content: center;
 }
 
-.step:nth-child(1) { transform: translateX(-2%); }
-.step:nth-child(2) { transform: translateX(2%); }
+.step:nth-child(1) { transform: translateX(-6%); }
+.step:nth-child(2) { transform: translateX(6%); }
 .step:nth-child(3) { transform: translateX(-4%); }
 .step:nth-child(4) { transform: translateX(4%); }
 
@@ -249,8 +250,8 @@ body {
 }
 .step:nth-child(1) .tagline { border-left-color: #ff8fa3; } /* Baby clothes */
 .step:nth-child(2) .tagline { border-left-color: #ffd166; } /* Accessories */
-.step:nth-child(3) .tagline { border-left-color: #35ed24; } /* Women */
-.step:nth-child(4) .tagline { border-left-color: #ea8d23; } /* Mother care */
+.step:nth-child(3) .tagline { border-left-color: #8ecae6; } /* Women */
+.step:nth-child(4) .tagline { border-left-color: #cdb4db; } /* Mother care */
 
 .step:nth-child(2),
 .step:nth-child(4) {
@@ -284,23 +285,8 @@ body.dark .tagline {
  color: #333;
 } 
 
-body.dark .step:nth-child(4):hover .tagline {
+body.dark .step:hover .tagline {
  background: rgb(202, 180, 229);
- color: #222;
-}
-
-body.dark .step:nth-child(3):hover .tagline {
- background: rgb(157, 198, 228);
- color: #222;
-}
-
-body.dark .step:nth-child(2):hover .tagline {
- background: rgb(236, 159, 210);
- color: #222;
-}
-
-body.dark .step:nth-child(1):hover .tagline {
- background: rgb(155, 211, 226);
  color: #222;
 }
 
@@ -330,86 +316,4 @@ body.dark .bottom-bar a {
     flex-direction: column;
     text-align: center;
   }
-}
-
-
-/* ================= CART ICON ANIMATION ================= */
-
-/* ================= CART ICON ================= */
-
-.cart {
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-/* cart image */
-.account-avatar img, .cart img {
-  width: 2.5rem;
-  height: 2.5rem;
-  object-fit: contain;
-}
-
-.cart img {
-  /* vibration animation */
-  animation: cart-vibrate 1.4s infinite ease-in-out;
-  transform-origin: center;
-}
-
-/* pause vibration on hover */
-.cart:hover img {
-  animation-play-state: paused;
-}
-
-/* cart item count badge */
-.cart-count {
-  position: absolute;
-  top: -0.35rem;
-  right: -0.45rem;
-
-  background: #ff4d6d;
-  color: #fff;
-  font-size: 0.7rem;
-  padding: 0.15rem 0.4rem;
-  border-radius: 50%;
-  font-weight: bold;
-}
-
-/* ================= VIBRATION ANIMATION ================= */
-
-@keyframes cart-vibrate {
-  0%   { transform: rotate(0deg) translateX(0); }
-  15%  { transform: rotate(-2deg) translateX(-1px); }
-  30%  { transform: rotate(2deg) translateX(1px); }
-  45%  { transform: rotate(-1.5deg) translateX(-1px); }
-  60%  { transform: rotate(1.5deg) translateX(1px); }
-  75%  { transform: rotate(-1deg) translateX(-0.5px); }
-  100% { transform: rotate(0deg) translateX(0); }
-}
-body.dark .cart-count {
-  background: #ffd166;
-  color: #222;
-}
-@media (max-width: 600px) {
-  .cart img {
-    width: 2rem;
-    height: 2rem;
-  }
-}
-
-
-/* ================= STEP LINKS ================= */
-.step-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-.step-link:hover .tagline {
-  text-decoration: none;
-}
-
-.step:hover {
-  transform: scale(1.02);
-  cursor: pointer;
 }
